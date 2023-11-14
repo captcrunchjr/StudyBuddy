@@ -8,31 +8,24 @@ google = oauth.register(
     'google',
     client_id = GOOGLE_CLIENT_ID,
     client_secret = CLIENT_SECRET,
-    access_token_url = 'https://accounts.google.com/o/oauth2/token',
-    access_token_params = None,
-    authorize_url = 'https://accounts.google.com/o/oauth2/auth',
-    authorize_params = None,
-    api_base_url = 'https://www.googleapis.com/oauth2/v1/',
     server_metadata_url = 'https://accounts.google.com/.well-known/openid-configuration',
-    client_kwargs={'scope': 'profile email'}
+    client_kwargs={'scope': 'openid profile email'}
 )
 
-@auth.route('/login_google')
+@auth.route('/login')
 def login():
-    oauth.crete_client('google')
-    redirect_uri = url_for('auth.authorize', external=True)
-    return google.authorize_redirect(redirect_uri)
+    redirect_uri = url_for('auth.authorize', _external=True)
+    return oauth.google.authorize_redirect(redirect_uri)
 
 @auth.route('/authorize')
 def authorize():
-    oauth.create_client('google')
+    google = oauth.google
     token = google.authorize_access_token()
-    resp = google.get('userinfo')
-    resp.raise_for_status()
-    profile = resp.json()
-    print(profile)
-    session['name'] = profile['name']
-    session['email'] = profile['email']
+    resp = token['userinfo']
+
+    print(resp)
+    session['name'] = resp['name']
+    session['email'] = resp['email']
     return redirect('userprofile')
 
 @auth.route('/logout')
@@ -47,4 +40,9 @@ def sign_up():
 def userprofile():
     name = session['name']
     email = session['email']
+    user = User.query.filter_by(email=email).first()
+    if not user:
+        newUser = User(email=email, name=name)
+        db.session.add(newUser)
+        db.session.commit()
     return f'Hello {name}, email: {email}!'

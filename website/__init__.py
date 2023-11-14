@@ -5,8 +5,8 @@ from authlib.integrations.flask_client import OAuth
 oauth = OAuth()
 db = SQLAlchemy()
 DB_Name = 'campusbuddies'
-GOOGLE_CLIENT_ID = '743091222344-gg2n9j4unsdhr8t48lrfoljdo7itd6l0.apps.googleusercontent.com' 
-CLIENT_SECRET = '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'
+GOOGLE_CLIENT_ID = '1077847252138-32ork9nfgi101f34ornknksloqd87e2n.apps.googleusercontent.com' 
+CLIENT_SECRET = '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'
 
 def create_app():
     app = Flask(__name__)
