@@ -12,8 +12,17 @@ google = oauth.register(
     client_kwargs={'scope': 'openid profile email'}
 )
 
-@auth.route('/login')
+@auth.route('/login_google')
 def login():
+    redirect_uri = url_for('auth.authorize', _external=True)
+    return oauth.google.authorize_redirect(redirect_uri)
+
+@auth.route('/signup')
+def sign_up():
+    return render_template('signup.html')
+
+@auth.route('/signup_google')
+def sign_up_google():
     redirect_uri = url_for('auth.authorize', _external=True)
     return oauth.google.authorize_redirect(redirect_uri)
 
@@ -31,10 +40,6 @@ def authorize():
 @auth.route('/logout')
 def logout():
     return "<h1>Logout</h1>"
-
-@auth.route('/signup')
-def sign_up():
-    return render_template("sign_up.html")
 
 @auth.route('/userprofile')
 def userprofile():

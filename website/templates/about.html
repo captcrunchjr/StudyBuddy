@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block container %}
+    <section class="sub-header">
+        {% include "nav.html" %} 
+            <h1>About Campus Buddies</h1>
+    </section>
+    
+    
+<!------- about us content -------->
+    
+    <section class="about-us">
+        <div class="row">
+            <div class="about-col">
+                <h1>Connect, Collaborate, Conquer: Together, We Learn Better!</h1>     
+                <p>Welcome to Campus Buddies, the ultimate online forum for students looking to connect with peers for studying and shared learning.
+                Our platform is designed to help you find like-minded students who are studying similar subjects and are located nearby, so you can form study groups and enhance your learning experience.
+                Join Campus Buddies today and take your studying to the next level!
+                </p>
+                <a href="./signup" class="hero-btn red-btn">JOIN NOW</a>
+            </div>
+
+            <div class="about-col">
+                <img src="../static/images/about2.jpeg">
+            </div>
+        </div>    
+    </section>
+{% endblock %} 
