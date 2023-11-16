@@ -1,0 +1,150 @@
+{% extends "base.html" %}
+{% block container %}
+    <section class="header">
+        {% include "nav.html" %}
+        
+        <div class="text-box">
+            <h1>CAMPUS BUDDIES</h1>
+            <p>Connect with peers for shared learning and studying</p>
+            <a href="./signup" class="hero-btn">Join Now</a>
+        </div>
+    </section>
+
+    <!---------- Steps ----------->
+    
+    <section class="steps">
+        <h1>3 Simple Steps</h1>
+        <div class="row">
+            <div class="steps-col">
+                <h3>Find Peers</h3>
+                <p> Easily find students who are studying similar subjects and are located nearby.</p>
+            </div>
+            <div class="steps-col">
+                <h3>Form Groups</h3>
+                <p>Create study groups with your peers to enhance your learning experience.</p>
+            </div>
+            <div class="steps-col">
+                <h3>Interactive Forum</h3>
+                <p>Engage in discussions and share resources with other students on our forum.</p>
+            </div>
+        </div>
+    </section>
+
+     <!---------- Why ---------->
+     <section class="section-1">
+        <h1>Why Choose Campus Buddies?</h1>
+        <div class="container text-center">
+          <div class="row">
+            <div class="col-md-6 col-12">
+              <div class="pray">
+                <img src="../static/images/why.jpeg" alt="Pray" class="" />
+              </div> 
+            </div>
+            <div class="col-md-6 col-12">
+              <div class="panel text-left">
+                <p class="pt-4">
+                    Campus Buddies is the ultimate platform for students who are serious about their studies. Here&#x27;s why you should choose us:
+                </p>
+                <p>
+                    1. Connect with like-minded students who are studying similar subjects and are located nearby.
+                </p>
+                <p class="pt-4">
+                    2. Access a wealth of study resources and engage in meaningful discussions on our interactive forum.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+  
+
+
+
+    <!---------- Services ---------->
+    
+    <section class="services">
+        <h1>Services</h1>
+
+            <div class="row">
+                <div class="services-col">
+                    <img src="../static/images/s1.jpeg">
+                    <h3>Study Group Matching</h3>
+                    <p2> $FREE.99</p2>
+                    <p>Let us help you find the perfect study group based on your interests and subjects.</p>
+                </div>
+                <div class="services-col">
+                    <img src="../static/images/s2.jpeg">
+                    <h3>Study Resources</h3>
+                    <p2> $FREE.99</p2>
+                    <p>Access a wide range of study resources including notes, practice exams, and study guides.</p>
+                </div>
+                <div class="services-col">
+                    <img src="../static/images/s3.jpeg">
+                    <h3>Peer Tuturing</h3>
+                    <p2> $FREE.99</p2>
+                    <p>Get one-on-one tutoring sessions with experienced tutors to help you excel in your studies.</p>
+                </div>
+            </div>
+    </section>
+    
+    <!---------- testimonials ---------->
+    
+    <section class="testimonials">
+        <h1>Testimonials</h1>
+        <p>What Our Users Say!</p>
+            <div class="row">
+                <div class="testimonial-col">
+                    <img src="../static/images/josh.png">
+                    <div> 
+                        <p>Campus Buddies helped me find the perfect study group for my computer science course. Highly recommended!.</p>
+                        <h3>Josh Eckard</h3>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-o"></i>
+                    </div>
+                </div>
+                <div class="testimonial-col">
+                    <img src="../static/images/cayden.png">
+                    <div>
+                        <p>Thanks to Campus Buddies, I was able to connect with other students who are passionate about literature. We now have regular study sessions and it has made a huge difference in my grades!</p>
+                        <h3>Cayden Renegar</h3>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-half-o"></i>
+                    </div>
+                    
+                </div>
+                
+            </div>
+            <div class="testimonial-col">
+                <img src="../static/images/adam.png">
+                <div>
+                    <p>I was struggling with my math class until I joined Campus Buddies. Now I have a group of classmates who help me understand the material and we study together. It&#x27;s been a game-changer!</p>
+                    <h3>Adam Dauda</h3>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-half-o"></i>
+                </div>
+   
+
+                
+
+    </section>
+
+<!------ Call To Action ------>
+
+    <section class="cta">
+        
+        <h1>Ready to find your<br>study buddies?</h1>
+        <a href="./contact.html" class="hero-btn">CONTACT US</a>
+    
+    </section>
+
+
+{% endblock %}
