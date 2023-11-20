@@ -1,61 +1,73 @@
 {% extends "base.html" %}
 {% block container %}
-    <section class="signin">
 
-        {% include "nav.html" %}
+<section class="signup">
+    {% include "nav.html" %}
 
-        <div class="form-box">
-            <h1 id="title">Sign Up</h1>
-            <form method="POST">
-                <div class="input-group">
-                    <div class = "Input-field" id="nameField">
-                        <i class="fa-solid fa-user"></i>
-                        <input type="text" placeholder="Name">  
+    <div class="signup-container">
+        <div class="container py-5 h-100"></div>
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+            <div class="card shadow-2-strong" style="border-radius: 1rem;">
+                <div class="card-body p-5 text-center">
+    
+                <h3 class="mb-5">Sign Up</h3>
+    
+                <form method="POST">
+                    <!-- 2 column grid layout with text inputs for the first and last names -->
+                    <div class="row">
+                        <div class="col-md-6 mb-4">
+                        <div class="form-outline">
+                            <input name="fname" type="text" id="form3Example1" class="form-control" />
+                            <label class="form-label" for="form3Example1">First name</label>
+                        </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                        <div class="form-outline">
+                            <input name="lname" type="text" id="form3Example2" class="form-control" />
+                            <label class="form-label" for="form3Example2">Last name</label>
+                        </div>
+                        </div>
+                    </div>
+        
+                    <!-- Email input -->
+                    <div class="form-outline mb-4">
+                        <input name="email" type="email" id="form3Example3" class="form-control" />
+                        <label class="form-label" for="form3Example3">Email address</label>
+                    </div>
+        
+                    <!-- Password input -->
+                    <div class="form-outline mb-4">
+                        <input name="password1" type="password" id="form3Example4" class="form-control" />
+                        <label class="form-label" for="form3Example4">Password</label>
                     </div>
 
-                    <div class = "Input-field">
-                        <i class="fa-solid fa-lock"></i>
-                        <input type="email" placeholder="Email">  
+                    <!-- Password verify -->
+                    <div class="form-outline mb-4">
+                        <input name="password2" type="password" id="form3Example4" class="form-control" />
+                        <label class="form-label" for="form3Example4">Password</label>
                     </div>
-
-                    <div class = "Input-field">
-                        <i class="fa-solid fa-user"></i>
-                        <input type="password" placeholder="Password">  
+        
+                    
+        
+                    <!-- Submit button -->
+                    <button type="submit" class="btn btn-primary btn-block mb-4">
+                        Sign up
+                    </button>
+                </form>
+        
+                    <!-- Register buttons -->
+                    <div class="text-center">
+                        <hr class="my-4">
+                        <a class="googlebtn" href="./login_google"><button class="btn btn-lg btn-block btn-primary" style="background-color: #dd4b39;"
+                        type="submit"><i class="fab fa-google me-2"></i> Sign up with google</button></a>
                     </div>
-                    <p>Lost Password <a href="#">Click Here!</a></p>
+    
                 </div>
-                <div class="btn-field">
-                    <button type="button" id="signupBtn">Sign Up</button>
-                    <button type="button" id="signinBtn" class="disable">Sign In</button>
-                </div>
-            </form>
+            </div>
+            </div>
         </div>
-    </div>
+        </div>
     </section>
-
-    <script>
-        let signupBtn = document.getElementById("signupBtn");
-        let signinBtn = document.getElementById("signinBtn");
-        let nameField = document.getElementById("nameField");
-        let title = document.getElementById("title");
-
-        signinBtn.onclick = function(){
-            nameField.style.maxHeight = "0";
-            title.innerHTML = "Sign In"
-            signupBtn.classList.add("disable");
-            signinBtn.classList.remove("disable");
-        }
-        signupBtn.onclick = function(){
-            nameField.style.maxHeight = "60px";
-            title.innerHTML = "Sign Up"
-            signupBtn.classList.remove("disable");
-            signinBtn.classList.add("disable");
-        }
-
-
-
-    </script>
-
-</body>
-</html>
+<!-- Section: Design Block -->
 {% endblock %}

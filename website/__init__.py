@@ -14,7 +14,7 @@ def create_app():
 
     #database connection info
     username = 'root'
-    password = 'password'
+    password = 'admin'
     hostname = 'localhost'
     port = '3306'
     app.config['SQLALCHEMY_DATABASE_URI'] =\
