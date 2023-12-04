@@ -1,4 +1,5 @@
 from flask import Blueprint, render_template, request, session
+from sqlalchemy import *
 from .models import *
 
 views = Blueprint('views', __name__)
@@ -41,3 +42,10 @@ def commenttrial():
         db.session.add(newPost)
         db.session.commit()
     return render_template("commenttrial.html")
+
+@views.route('/disciplinetrial', methods=['POST', 'GET'])
+def disciplinetrial():
+    disciplines = db.session.scalars(select(Discipline).order_by(Discipline.disc_id)).all()
+    # for discipline in disciplines:
+        # disc = Disc{[id: discipline.id, name: discipline.name]}
+    # numDegrees = db.session.select(Degree).where(Degree.)

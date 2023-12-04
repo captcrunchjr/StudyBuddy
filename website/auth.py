@@ -28,7 +28,7 @@ def signin():
                 flash('Incorrect Password', category='error')
         else:
             flash(' Email doesn\'t exist', category='error')
-    return render_template("signin.html", boolen=True)
+    return render_template("signin.html", boolean=True)
 
 @auth.route('/login_google')
 def login_google():
