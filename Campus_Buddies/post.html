@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="post.css">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="navbar-left">
+            <a href="index.html" class="logo"><img src="images/logo3.png"></a>
+    
+            <div class="search-box">
+                <img src="images/search.png">
+                <input type="text" placeholder="Search">
+            </div>
+    
+        </div>
+        <div class="navbar-center">
+            <ul>
+                <li><a href="#" class="active-link"><img src="images/home.png"> <span>Home</span></a></li>
+                <li><a href="#"><img src="images/buddies.png"> <span>Buddies</span></a></li>
+                <li><a href="#"><img src="images/message.png"> <span>Messaging</span></a></li>
+                <li><a href="#"><img src="images/notification.png"> <span>Notifications</span></a></li>
+            </ul>
+        </div>
+        <div class="navbar-right">
+            <div class="online">
+                <img src="images/network.png" class="nav-profile-img" onclick="toggleMenu()">
+            </div>
+        </div>
+
+        <!-- --------------- profile-drop-down-menu---------- -->
+<div class="profile-menu-wrap" id="profileMenu">
+    <div class="profile-menu">
+        <div class="user-info">
+            <img src="images/network.png">
+            <div>
+                <h3>User Name</h3>
+                <a href="profile.html">See your profile</a>
+            </div>
+        </div>
+        <hr>
+        <a href="#" class="profile-menu-link">
+            <img src="images/setting.png">
+            <p>Settings & Privacy</p>
+            <span>></span>
+        </a>
+        <a href="#" class="profile-menu-link">
+            <img src="images/help.png">
+            <p>Help & Support</p>
+            <span>></span>
+        </a>
+        <a href="#" class="profile-menu-link">
+            <img src="images/logout.png">
+            <p>Logout</p>
+            <span>></span>
+        </a>
+    </div>
+</div>
+
+</nav>
+
+<!-- -------------- navbar close-------- -->
+<div class="container">
+    <!-- -------left-sidebar------------ -->
+        <div class="left-sidebar">
+            <div class="sidebar-profile-box">
+                <div class="sidebar-profile-info">
+                    <img src="images/network.png">
+                    <h1>User Name</h1>
+                    <h3>Major</h3>
+                    <ul>
+                        <li>Your posts<span>5</span></li>
+                        <li>Your Buddies<span>10</span></li>
+                    </ul>
+                </div>
+            </div>
+    
+            <div class="sidebar-activity" id="sidebarActivity">
+                <h3>RECENT</h3>
+                <a href="#"><img src="images/recent.png"> Web Development</a>
+                <a href="#"><img src="images/recent.png"> Software Engineering</a>
+                <a href="#"><img src="images/recent.png"> Calculus II</a>
+                <a href="#"><img src="images/recent.png"> Data Structure</a>
+    
+                <h3>GROUPS</h3>
+                <a href="#"><img src="images/group.png"> Web Development Group</a>
+                <a href="#"><img src="images/group.png"> Intro to Computer Science Group</a>
+                <a href="#"><img src="images/group.png"> Math Group</a>
+                <a href="#"><img src="images/group.png"> HTML & CSS Learners</a>
+
+                <h3>HASHTAG</h3>
+                <a href="#"><img src="images/hashtag.png"> webdevelopment</a>
+                <a href="#"><img src="images/hashtag.png"> userinterface</a>
+                <a href="#"><img src="images/hashtag.png"> onlinelearning</a>
+                <div class="group-search-link">
+                    <a href="groupsearch.html">Find a Group</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- -----------------main-content------------ -->
+<div class="main-content">
+
+    <div class="create-post">
+        <div class="create-post-input">
+            <img src="images/network.png">
+            <textarea rows="2" placeholder="Write a post"></textarea>
+        </div>
+        <div class="create-post-links">
+            <li><img src="images/photo.png">Photo</li>
+            <li><img src="images/video.png">Video</li>
+            <li><img src="images/event.png">Groups</li>
+            <li>Post</li>
+        </div>
+    </div>
+    <div class="sort-by">
+        <hr>
+        <p>Sort by: <span>top <img src="images/down-arrow.png"></span></p>
+    </div>
+
+    <div class="post">
+        <div class="post-author">
+            <img src="images/josh.png">
+            <div>
+                <h1>Josh Eckard</h1>
+                <small>Computer Science Major | Software Engineering Concentration</small>
+                <small>2 hours ago</small>
+            </div>
+        </div>
+        <p>Hi guys, my name is Josh Eckard. I am a Senior at University of North Carolina at Charlotte. Going into my finaly year, i am trying to find help with Introduction to AR and VR. 
+            i have joind the studdy buddies group for that class. If you are also looking for help, please message me so we could study together. </p>
+        <img src="images/s4.jpeg" width="100%">
+
+        <div class="post-stats">
+            <div>
+                <img src="images/thumbsup.png">
+                <img src="images/love.png">
+                <img src="images/clap.png">
+                <span class="liked-users">Adam and 6 others</span>
+            </div>
+            <div>
+                <span>7 comments</span>
+            </div>
+        </div>
+        <div class="post-activity">
+           
+            <div class="post-activity-link">
+                <img src="images/like.png">
+                <span>Like</span>
+            </div>
+            <div class="post-activity-link">
+                <img src="images/comment.png">
+                <span>Comment</span>
+            </div>
+            <div class="post-activity-link">
+                <img src="images/share.png">
+                <span>Share</span>
+            </div>
+            <div class="post-activity-link">
+                <img src="images/send.png">
+                <span>Message</span>
+            </div>
+        </div>
+    </div>
+    <div class="post">
+        <div class="post-author">
+            <img src="images/adam.png">
+            <div>
+                <h1>Adam Dauda</h1>
+                <small>Computer Science Major | Software Engineering Concentration</small>
+                <small>2 hours ago</small>
+            </div>
+        </div>
+        <p>Hi, I am Adam Dauda. I am a Senior at University of North Carolina at Charlotte. I am having issues with my Info privacy class, can someone help me out? </p>
+        <img src="images/s3.jpeg" width="100%">
+
+        <div class="post-stats">
+            <div>
+                <img src="images/thumbsup.png">
+                <img src="images/love.png">
+                <img src="images/clap.png">
+                <span class="liked-users">Adam Dauda and 4 others</span>
+            </div>
+            <div>
+                <span>2 comments</span>
+            </div>
+        </div>
+        <div class="post-activity">
+            <div class="post-activity-link">
+                <img src="images/like.png">
+                <span>Like</span>
+            </div>
+            <div class="post-activity-link">
+                <img src="images/comment.png">
+                <span>Comment</span>
+            </div>
+            <div class="post-activity-link">
+                <img src="images/share.png">
+                <span>Share</span>
+            </div>
+            <div class="post-activity-link">
+                <img src="images/send.png">
+                <span>Message</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="post">
+        <div class="post-author">
+            <img src="images/cayden.png">
+            <div>
+                <h1>Cayden Renegar</h1>
+                <small>Computer Science Major | Software Engineering Concentration</small>
+                <small>2 hours ago</small>
+            </div>
+        </div>
+        <p></p>
+        <img src="images/s1.jpeg" width="100%">
+
+        <div class="post-stats">
+            <div>
+                <img src="images/thumbsup.png">
+                <img src="images/love.png">
+                <img src="images/clap.png">
+                <span class="liked-users">Josh and 4 others</span>
+            </div>
+            <div>
+                <span>22 comments</span>
+            </div>
+        </div>
+        <div class="post-activity">
+        
+            <div class="post-activity-link">
+                <img src="images/like.png">
+                <span>Like</span>
+            </div>
+            <div class="post-activity-link">
+                <img src="images/comment.png">
+                <span>Comment</span>
+            </div>
+            <div class="post-activity-link">
+                <img src="images/share.png">
+                <span>Share</span>
+            </div>
+            <div class="post-activity-link">
+                <img src="images/send.png">
+                <span>Send</span>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- ------------right-sidebar--------------- -->
+<div class="right-sidebar">
+    <div class="sidebar-news">
+        <img src="images/more.png" class="info-icon">
+        <h3>Suggested Groups</h3>
+        <a href="#">Intro to Info Security and Privacy</a>
+        <span>1d ago &middot; 50 Buddies</span>
+
+        <a href="#">Computing Professionals II</a>
+        <span>19h ago &middot; 10 Buddies</span>
+
+        <a href="#">Human Centered Design</a>
+        <span>1d ago &middot; 37 Buddies</span>
+
+        <a href="#">Comp & Their Impact on Society</a>
+        <span>18h ago &middot; 12 Buddies</span>
+
+        <a href="groupsearch.html" class="read-more-link">Read More</a>
+    </div>
+
+    
+    <div class="sidebar-useful-links">
+        <a href="about.html">About</a>
+        <a href="#">Accessiblity</a>
+        <a href="#">Help Center</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Advertising</a>
+        <a href="#">More</a>
+
+        <div class="copyright-msg">
+            <img src="images/logo3.png">
+            <p>CampusBuddies &#169; 2023. All right reserved</p>
+        </div>
+    </div>
+
+</div>
+</div>
+
+<script>
+
+    let profileMenu = document.getElementById("profileMenu");
+
+    function toggleMenu(){
+        profileMenu.classList.toggle("open-menu");
+    }
+
+</script>
+
+<script>
+
+    let sideActivity = document.getElementById("sidebarActivity");
+    let moreLink = document.getElementById("showMoreLink");
+
+    function toggleActivity(){
+        sideActivity.classList.toggle("open-activity");
+
+        if(sideActivity.classList.contains("open-activity")){
+            moreLink.innerHTML = "Show less <b>-</b>";
+        }
+        else{
+            moreLink.innerHTML = "Show more <b>+</b>";
+        }
+    }
+
+</script>
+
+
+
+</body>
+</html>
