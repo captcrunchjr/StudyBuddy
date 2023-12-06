@@ -28,7 +28,7 @@ def signin():
                 flash('Incorrect Password', category='error')
         else:
             flash(' Email doesn\'t exist', category='error')
-    return render_template("signin.html", boolen=True)
+    return render_template("signin.html", boolean=True)
 
 @auth.route('/login_google')
 def login_google():
@@ -54,7 +54,8 @@ def authorize():
 
 @auth.route('/logout')
 def logout():
-    return "<h1>Logout</h1>"
+    session.clear()
+    return redirect('/')
 
 @auth.route('/userprofile')
 def userprofile():
@@ -99,6 +100,6 @@ def signup():
             session['email'] = email
             flash('Account Created', category='success')
 
-            return redirect('userprofile')
+            return redirect('feed')
 
     return render_template("signup.html")

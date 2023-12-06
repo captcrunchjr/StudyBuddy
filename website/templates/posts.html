@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% include 'smallheader.html' %}
+
+{% block container %}
+{% if postArray %}
+<!--<h1>{{userid}}</h1>-->
+<div class="container">
+    <h1 class="container-header">Posts</h1>
+    {% for post in postArray %}
+        <div class="discipline row">
+            <div class="discipline-title">
+                <a href={{url_for('views.post', post_id=post.id)}}>{{post.name}}</a><!-- (Poster Id: {{post.posterid}})-->
+                {% if userid == post.posterid %}
+                    <a href="{{url_for('views.deletepost', post_id = post.id)}}" class="deletepost btn right btn-danger"><small>Delete</small></a>
+                {% endif %}
+            </div>
+            <hr />
+            <div class="discipline-body">
+                <p class="left">Comments: {{post.numComments}}</p>
+                <p class="right">{{post.post_time.strftime('%m/%d/%Y %H:%M')}}</p>
+            </div>
+        </div>
+    {% endfor %}
+{% endif %}
+
+
+    <div class="createPost hidden">
+        <form method="POST">
+            <input type="text" name="title" id="title" placeholder="Title">
+            <br />
+            <textarea id="content" name="content" rows="5" ></textarea>
+            <br />
+            <button class="btn btn-primary" type="submit">Submit</button>
+        </form>
+    </div>
+
+
+    <button class="createPostbtn btn btn-primary">Make a new post</button>
+</div>
+<!----JavaScript for toggle menu---->
+<script>
+    var navLinks = document.getElementById("navLinks");
+
+    function showMenu() {
+        navLinks.style.right = "0";
+    }
+
+    function hideMenu() {
+        navLinks.style.right = "-200px";
+    }
+
+    newPostButton = document.querySelector('.createPostbtn');
+    postBox = document.querySelector('.createPost');
+
+    newPostButton.addEventListener('click', makeNewPost);
+
+    function makeNewPost() {
+        postBox.classList.remove('hidden');
+        newPostButton.classList.add('hidden');
+        // newPostButton.classList.remove('btn');
+    }
+</script>
+<!-- MDB -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.2/mdb.min.js"></script>
+
+{% endblock %}

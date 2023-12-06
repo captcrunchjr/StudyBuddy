@@ -1,0 +1,37 @@
+        {% extends "base.html" %}
+        {% include 'smallheader.html' %}
+
+        {% block container %}
+        {% if discArray %}
+            <div class="container">
+                <h1 class="container-header">Disciplines</h1>
+            {% for disc in discArray %}
+                <div class="discipline row">
+                    <div class="discipline-title"><a href={{url_for('views.degrees', disc_id = disc.id)}}>{{disc.name}}</a></div>
+                    <hr />
+                    <div class="discipline-body">
+                        <p class="left">Degrees: {{disc.numDeg}}</p>
+                        <p class="right">Recently updated: 10/02/2023 4:03 PM{{disc.time}}</p>
+                    </div>
+                </div>
+            {% endfor %}
+            </div>
+        {% endif %}
+        {% endblock %}
+        
+        <!----JavaScript for toggle menu---->
+        <script>
+            var navLinks = document.getElementById("navLinks");
+
+            function showMenu() {
+                navLinks.style.right = "0";
+            }
+
+            function hideMenu() {
+                navLinks.style.right = "-200px";
+            }
+        </script>
+        <!-- MDB -->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.2/mdb.min.js"></script>
+    </body>
+</html>

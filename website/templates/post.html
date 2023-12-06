@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+{% include 'smallheader.html' %}
+
+{% block container %}
+<!--<h1>{{userid}}</h1>-->
+    <div class="container">
+        <div class="discipline row">
+            <div class="discipline-title">{{post.title}}<!-- (Poster Id: {{author.id}})--></div>
+            
+            <div class="discipline-body">
+                <p class="left">{{author.name}}</p>
+                <p class="right">Posted: {{post.post_time}}</p>
+                <div class="discipline-body">
+                    <hr style="clear: both;" />
+                    <p class="post-content">{{post.content}}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="comments">
+            {% if comments %}
+                {% for comment in comments %}
+                    <div class="discipline row">
+                        <div class="discipline-title"></div>
+                        
+                        <div class="discipline-body">
+                            <p class="left">{{comment.real_name or comment.commenter}}<!-- (Commenter Id: {{comment.commenter}})--></p>
+                            <p class="right">Posted: {{comment.comment_time.strftime('%m/%d/%Y %H:%M')}}</p>
+                            <div class="discipline-body">
+                                <hr style="clear: both;" />
+                                <p class="post-content">{{comment.content}}</p>
+                                <!--<p>{{userid}}</p>-->
+                                {% if userid == comment.commenter %}
+                                    <hr/>
+                                    <a href="{{url_for('views.deletecomment', comment_id = comment.comment_id)}}" class="deletepost btn right btn-danger"><small>Delete</small></a>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% endif %}
+                    
+            <div class="createComment hidden">
+                <form method="POST">
+                    <textarea id="content" name="content" rows="5"></textarea>
+                    <br/>
+                    <button class="btn btn-primary" type="submit">Submit</button>
+                </form>
+            </div> 
+        
+            <button class="createCommentbtn btn btn-primary">Make a new comment</button>
+        </div> 
+    </div>
+    
+        <!----JavaScript for toggle menu---->
+        <script>
+            var navLinks = document.getElementById("navLinks");
+
+            function showMenu() {
+                navLinks.style.right = "0";
+            }
+
+            function hideMenu() {
+                navLinks.style.right = "-200px";
+            }
+
+            const newCommentButton = document.querySelector('.createCommentbtn');
+            const commentBox = document.querySelector('.createComment');
+
+            newCommentButton.addEventListener('click', makeNewPost);
+
+            function makeNewPost(){
+                commentBox.classList.remove('hidden');
+                newCommentButton.classList.add('hidden');
+            }
+        </script>
+        <!-- MDB -->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.2/mdb.min.js"></script>
+{% endblock %}
