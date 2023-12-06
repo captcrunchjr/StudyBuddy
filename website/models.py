@@ -41,3 +41,9 @@ class Comment(db.Model):
     comment_time = db.Column(db.DateTime(timezone=True), server_default=func.now())
     update_time = db.Column(db.DateTime(timezone=True), onupdate=func.now())
     content = db.Column(db.String(500), nullable=False)
+
+class FeedPost(db.Model):
+    post_id = db.Column(db.Integer, primary_key=True)
+    poster_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    post_content = db.Column(db.String(500), nullable=False)
+    post_time = db.Column(db.DateTime(timezone=True), server_default=func.now())

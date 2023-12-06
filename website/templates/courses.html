@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% include 'smallheader.html' %}
+
+{% block container %}
+    {% if courseArray %}
+        <div class="container">
+            <h1 class="container-header">Courses</h1>
+        {% for course in courseArray %}
+            <div class="discipline row">
+                <div class="discipline-title"><a href={{url_for('views.posts', course_id = course.id)}}>{{course.name}}</a></div>
+                <hr />
+                <div class="discipline-body">
+                    <p class="left">Posts: {{course.numPosts}}</p>
+                    <p class="right">Recently updated: 10/02/2023 4:03 PM</p>
+                </div>
+            </div>
+        {% endfor %}
+        </div>
+    {% endif %}
+
+{% endblock %}
+        <!----JavaScript for toggle menu---->
+        <script>
+            var navLinks = document.getElementById("navLinks");
+
+            function showMenu() {
+                navLinks.style.right = "0";
+            }
+
+            function hideMenu() {
+                navLinks.style.right = "-200px";
+            }
+        </script>
+        <!-- MDB -->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.2/mdb.min.js"></script>
