@@ -1,6 +1,6 @@
 <nav class="navbar">
     <div class="navbar-left">
-        <a href="index.html" class="logo"><img src="{{url_for('static', filename="images/logo3.png")}}"></a>
+        <a href="{{url_for('views.home')}}" class="logo"><img src="{{url_for('static', filename="images/logo3.png")}}"></a>
 
         <div class="search-box">
             <img src="{{url_for('static', filename="images/search.png")}}">
@@ -10,7 +10,8 @@
     </div>
     <div class="navbar-center">
         <ul>
-            <li><a href="#" class="active-link"><img src="{{url_for('static', filename="images/home.png")}}"> <span>Home</span></a></li>
+            <li><a href="{{url_for('views.home')}}"><img src="{{url_for('static', filename="images/home.png")}}"> <span>Home</span></a></li>
+            <li><a href="{{url_for('views.disciplines')}}"><img src="{{url_for('static', filename="images/buddies.png")}}"> <span>Forums</span></a></li>
             <li><a href="#"><img src="{{url_for('static', filename="images/buddies.png")}}"> <span>Buddies</span></a></li>
             <li><a href="#"><img src="{{url_for('static', filename="images/message.png")}}"> <span>Messaging</span></a></li>
             <li><a href="#"><img src="{{url_for('static', filename="images/notification.png")}}"> <span>Notifications</span></a></li>
@@ -28,8 +29,8 @@
             <div class="user-info">
                 <img src={{url_for('static', filename="images/network.png")}}>
                 <div>
-                    <h3>User Name</h3>
-                    <a href="profile.html">See your profile</a>
+                    <h3>{{session.name}}</h3>
+                    <a href="{{url_for('views.feed')}}">See your profile</a>
                 </div>
             </div>
             <hr>
@@ -43,7 +44,7 @@
                 <p>Help & Support</p>
                 <span>></span>
             </a>
-            <a href="#" class="profile-menu-link">
+            <a href="{{url_for('auth.logout')}}" class="profile-menu-link logout">
                 <img src="{{url_for('static', filename="images/logout.png")}}">
                 <p>Logout</p>
                 <span>></span>
@@ -52,3 +53,31 @@
     </div>
 
 </nav>
+
+<script>
+    let profileMenu = document.getElementById("profileMenu");
+
+    function toggleMenu(){
+        profileMenu.classList.toggle("open-menu");
+    }
+
+    let sideActivity = document.getElementById("sidebarActivity");
+    let moreLink = document.getElementById("showMoreLink");
+
+    function toggleActivity(){
+        sideActivity.classList.toggle("open-activity");
+
+        if(sideActivity.classList.contains("open-activity")){
+            moreLink.innerHTML = "Show less <b>-</b>";
+        }
+        else{
+            moreLink.innerHTML = "Show more <b>+</b>";
+        }
+    }
+
+    let logoutbtn = document.querySelector('.logout');
+    logoutbtn.addEventListener('click', logout)
+    function logout(){
+        window.cookie = "";
+    }
+</script>

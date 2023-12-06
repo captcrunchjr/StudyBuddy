@@ -2,9 +2,10 @@
 {% include 'smallheader.html' %}
 
 {% block container %}
+<!--<h1>{{userid}}</h1>-->
     <div class="container">
         <div class="discipline row">
-            <div class="discipline-title">{{post.title}}</div>
+            <div class="discipline-title">{{post.title}}<!-- (Poster Id: {{author.id}})--></div>
             
             <div class="discipline-body">
                 <p class="left">{{author.name}}</p>
@@ -23,11 +24,16 @@
                         <div class="discipline-title"></div>
                         
                         <div class="discipline-body">
-                            <p class="left">{{comment.real_name or comment.commenter}}</p>
+                            <p class="left">{{comment.real_name or comment.commenter}}<!-- (Commenter Id: {{comment.commenter}})--></p>
                             <p class="right">Posted: {{comment.comment_time.strftime('%m/%d/%Y %H:%M')}}</p>
                             <div class="discipline-body">
                                 <hr style="clear: both;" />
                                 <p class="post-content">{{comment.content}}</p>
+                                <!--<p>{{userid}}</p>-->
+                                {% if userid == comment.commenter %}
+                                    <hr/>
+                                    <a href="{{url_for('views.deletecomment', comment_id = comment.comment_id)}}" class="deletepost btn right btn-danger"><small>Delete</small></a>
+                                {% endif %}
                             </div>
                         </div>
                     </div>

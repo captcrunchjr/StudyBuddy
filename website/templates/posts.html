@@ -3,11 +3,17 @@
 
 {% block container %}
 {% if postArray %}
+<!--<h1>{{userid}}</h1>-->
 <div class="container">
     <h1 class="container-header">Posts</h1>
     {% for post in postArray %}
         <div class="discipline row">
-            <div class="discipline-title"><a href={{url_for('views.post', post_id=post.id)}}>{{post.name}}</a></div>
+            <div class="discipline-title">
+                <a href={{url_for('views.post', post_id=post.id)}}>{{post.name}}</a><!-- (Poster Id: {{post.posterid}})-->
+                {% if userid == post.posterid %}
+                    <a href="{{url_for('views.deletepost', post_id = post.id)}}" class="deletepost btn right btn-danger"><small>Delete</small></a>
+                {% endif %}
+            </div>
             <hr />
             <div class="discipline-body">
                 <p class="left">Comments: {{post.numComments}}</p>

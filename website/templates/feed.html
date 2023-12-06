@@ -1,0 +1,264 @@
+{% extends 'base.html' %}
+{% include 'smallheader.html' %}
+{% block container %}
+<!-- -------------- navbar close-------- -->
+<div class="feedcontainer">
+    <!-- -------left-sidebar------------ -->
+        <div class="left-sidebar">
+            <div class="sidebar-profile-box">
+                <div class="sidebar-profile-info">
+                    <img src={{url_for('static' , filename = 'images/network.png')}}>
+                    <h1>{{username}}</h1>
+                    <h3>Major</h3>
+                    <ul>
+                        <li>Your posts<span>5</span></li>
+                        <li>Your Buddies<span>10</span></li>
+                    </ul>
+                </div>
+            </div>
+    
+            <div class="sidebar-activity" id="sidebarActivity">
+                <h3>RECENT</h3>
+                <a href="#"><img src={{url_for('static' , filename = 'images/recent.png')}}> Web Development</a>
+                <a href="#"><img src={{url_for('static', filename = "images/recent.png")}}> Software Engineering</a>
+                <a href="#"><img src={{url_for('static', filename = "images/recent.png")}}> Calculus II</a>
+                <a href="#"><img src={{url_for('static', filename = "images/recent.png")}}> Data Structure</a>
+    
+                <h3>GROUPS</h3>
+                <a href="#"><img src={{url_for('static', filename = "images/group.png")}}> Web Development Group</a>
+                <a href="#"><img src={{url_for('static', filename = "images/group.png")}}> Intro to Computer Science Group</a>
+                <a href="#"><img src={{url_for('static', filename = "images/group.png")}}> Math Group</a>
+                <a href="#"><img src={{url_for('static', filename = "images/group.png")}}> HTML & CSS Learners</a>
+
+                <h3>HASHTAG</h3>
+                <a href="#"><img src={{url_for('static', filename = "images/hashtag.png")}}> webdevelopment</a>
+                <a href="#"><img src={{url_for('static', filename = "images/hashtag.png")}}> userinterface</a>
+                <a href="#"><img src={{url_for('static', filename = "images/hashtag.png")}}> onlinelearning</a>
+                <div class="group-search-link">
+                    <a href="groupsearch.html">Find a Group</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- -----------------main-content------------ -->
+<div class="main-content">
+
+    <div class="create-post">
+        <form class="feedpost" method="POST">
+            <div class="create-post-input">
+                <img src={{url_for('static', filename = "images/network.png")}}>
+                <textarea name="feedpost" id="feedpost" rows="2" placeholder="Write a post"></textarea>
+            </div>
+            <div class="create-post-links">
+                <li><img src={{url_for('static', filename = "images/photo.png")}}>Photo</li>
+                <li><img src={{url_for('static', filename = "images/video.png")}}>Video</li>
+                <li><img src={{url_for('static', filename = "images/event.png")}}>Groups</li>
+                <li><button class="nostyle feedpost">Post</button></li>
+            </div>
+        </form>
+    </div>
+    <div class="sort-by">
+        <hr>
+        <p>Sort by: <span>top <img src={{url_for('static', filename = "images/down-arrow.png")}}></span></p>
+    </div>
+
+    {%if feedposts%}
+        {% for post in feedposts %}
+            <div class="post">
+                <div class="post-author">
+                    <img src={{url_for('static', filename = "images/josh.png")}}>
+                    <div>
+                        <h1>{{post.real_name}}</h1>
+                        <small>{{post.post_time}}</small>
+                    </div>
+                </div>
+                <p>{{post.post_content}}</p>
+                <div class="post-stats">
+                    <div>
+                        <img src={{url_for('static', filename = "images/thumbsup.png")}}>
+                        <img src={{url_for('static', filename = "images/love.png")}}>
+                        <img src={{url_for('static', filename = "images/clap.png")}}>
+                        <span class="liked-users">Adam and 6 others</span>
+                    </div>
+                    <div>
+                        <span>99 comments</span>
+                    </div>
+                </div>
+                <div class="post-activity">
+           
+                    <div class="post-activity-link">
+                        <img src={{url_for('static', filename = "images/like.png")}}>
+                        <span>Like</span>
+                    </div>
+                    <div class="post-activity-link">
+                        <img src={{url_for('static', filename = "images/comment.png")}}>
+                        <span>Comment</span>
+                    </div>
+                    <div class="post-activity-link">
+                        <img src={{url_for('static', filename = "images/share.png")}}>
+                        <span>Share</span>
+                    </div>
+                    <div class="post-activity-link">
+                        <img src={{url_for('static', filename = "images/send.png")}}>
+                        <span>Message</span>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    {% endif %}
+    <div class="post">
+        <div class="post-author">
+            <img src={{url_for('static', filename = "images/adam.png")}}>
+            <div>
+                <h1>Adam Dauda</h1>
+                <small>Computer Science Major | Software Engineering Concentration</small>
+                <small>2 hours ago</small>
+            </div>
+        </div>
+        <p>Hi, I am Adam Dauda. I am a Senior at University of North Carolina at Charlotte. I am having issues with my Info privacy class, can someone help me out? </p>
+        <img src={{url_for('static', filename = "images/s3.jpeg")}} width="100%">
+
+        <div class="post-stats">
+            <div>
+                <img src={{url_for('static', filename = "images/thumbsup.png")}}>
+                <img src={{url_for('static', filename = "images/love.png")}}>
+                <img src={{url_for('static', filename = "images/clap.png")}}>
+                <span class="liked-users">Adam Dauda and 4 others</span>
+            </div>
+            <div>
+                <span>2 comments</span>
+            </div>
+        </div>
+        <div class="post-activity">
+            <div class="post-activity-link">
+                <img src={{url_for('static', filename = "images/like.png")}}>
+                <span>Like</span>
+            </div>
+            <div class="post-activity-link">
+                <img src={{url_for('static', filename = "images/comment.png")}}>
+                <span>Comment</span>
+            </div>
+            <div class="post-activity-link">
+                <img src={{url_for('static', filename = "images/share.png")}}>
+                <span>Share</span>
+            </div>
+            <div class="post-activity-link">
+                <img src={{url_for('static', filename = "images/send.png")}}>
+                <span>Message</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="post">
+        <div class="post-author">
+            <img src={{url_for('static', filename = "images/cayden.png")}}>
+            <div>
+                <h1>Cayden Renegar</h1>
+                <small>Computer Science Major | Software Engineering Concentration</small>
+                <small>2 hours ago</small>
+            </div>
+        </div>
+        <p></p>
+        <img src={{url_for('static', filename = "images/s1.jpeg")}} width="100%">
+
+        <div class="post-stats">
+            <div>
+                <img src={{url_for('static', filename = "images/thumbsup.png")}}>
+                <img src={{url_for('static', filename = "images/love.png")}}>
+                <img src={{url_for('static', filename = "images/clap.png")}}>
+                <span class="liked-users">Josh and 4 others</span>
+            </div>
+            <div>
+                <span>22 comments</span>
+            </div>
+        </div>
+        <div class="post-activity">
+        
+            <div class="post-activity-link">
+                <img src={{url_for('static', filename = "images/like.png")}}>
+                <span>Like</span>
+            </div>
+            <div class="post-activity-link">
+                <img src={{url_for('static', filename = "images/comment.png")}}>
+                <span>Comment</span>
+            </div>
+            <div class="post-activity-link">
+                <img src={{url_for('static', filename = "images/share.png")}}>
+                <span>Share</span>
+            </div>
+            <div class="post-activity-link">
+                <img src={{url_for('static', filename = "images/send.png")}}>
+                <span>Send</span>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- ------------right-sidebar--------------- -->
+<div class="right-sidebar">
+    <div class="sidebar-news">
+        <img src={{url_for('static', filename = "images/more.png")}} class="info-icon">
+        <h3>Suggested Groups</h3>
+        <a href="#">Intro to Info Security and Privacy</a>
+        <span>1d ago &middot; 50 Buddies</span>
+
+        <a href="#">Computing Professionals II</a>
+        <span>19h ago &middot; 10 Buddies</span>
+
+        <a href="#">Human Centered Design</a>
+        <span>1d ago &middot; 37 Buddies</span>
+
+        <a href="#">Comp & Their Impact on Society</a>
+        <span>18h ago &middot; 12 Buddies</span>
+
+        <a href="groupsearch.html" class="read-more-link">Read More</a>
+    </div>
+
+    
+    <div class="sidebar-useful-links">
+        <a href={{url_for('views.about')}}>About</a>
+        <a href="#">Accessiblity</a>
+        <a href="#">Help Center</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Advertising</a>
+        <a href="#">More</a>
+
+        <div class="copyright-msg">
+            <img src={{url_for('static', filename = "images/logo3.png")}}>
+            <p>CampusBuddies &#169; 2023. All right reserved</p>
+        </div>
+    </div>
+
+</div>
+</div>
+
+<script>
+
+    let profileMenu = document.getElementById("profileMenu");
+
+    function toggleMenu(){
+        profileMenu.classList.toggle("open-menu");
+    }
+
+</script>
+
+<script>
+
+    let sideActivity = document.getElementById("sidebarActivity");
+    let moreLink = document.getElementById("showMoreLink");
+
+    function toggleActivity(){
+        sideActivity.classList.toggle("open-activity");
+
+        if(sideActivity.classList.contains("open-activity")){
+            moreLink.innerHTML = "Show less <b>-</b>";
+        }
+        else{
+            moreLink.innerHTML = "Show more <b>+</b>";
+        }
+    }
+
+</script>
+
+{% endblock %}
