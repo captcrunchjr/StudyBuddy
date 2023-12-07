@@ -11,3 +11,4 @@ Create the venv and install requirements:
 
         After you run main.py for the first time, it will generate the tables in the database for you. Use Ctrl+C in the VSCode terminal to terminate the server, then run the campusbuddies.sql queries to generate some data.
         Then run [python main.py] again and you'll have some working data
+``

@@ -46,6 +46,8 @@ def authorize():
     token = google.authorize_access_token()
     resp = token['userinfo']
 
+    session.clear()
+
     print(resp)
     session['name'] = resp['name']
     session['email'] = resp['email']
@@ -67,7 +69,7 @@ def userprofile():
         newUser = User(email=email, name=name, oauth=oauth)
         db.session.add(newUser)
         db.session.commit()
-    return f'Hello {name}, email: {email}!'
+    return redirect('/feed')
 
 @auth.route('/signup', methods=['GET', 'POST'])
 def signup():
@@ -100,6 +102,6 @@ def signup():
             session['email'] = email
             flash('Account Created', category='success')
 
-            return redirect('feed')
+            return redirect('userprofile')
 
     return render_template("signup.html")
